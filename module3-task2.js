@@ -6,13 +6,9 @@ are not relevant in this scenario). For now, assume that the values provided by 
 you have any ideas on how, you can try to make this script in such a way that it will be resistant to invalid values
 */
 
-let width = window.prompt("Enter the box width");
-let height = window.prompt("Enter the box height");
-let length = window.prompt("Enter the box length");
+let width = window.prompt("Enter the box width", 0);
+let height = window.prompt("Enter the box height", 0);
+let length = window.prompt("Enter the box length", 0);
 
-if (width == NaN || height == NaN || length == NaN) {
-  alert("Please, enter a valid number");
-}else{
-  let volume = width * height * length;
-  alert(`Your box's volume is: ${volume}`);
-}
+let volume = width * height * length;
+alert(`Your box's volume is: ${volume}`);
