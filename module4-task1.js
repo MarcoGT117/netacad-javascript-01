@@ -19,9 +19,9 @@ Task 2
 Rewrite the code from the previous task, replacing if with a ternary conditional operator.
 */
 
-let number = window.prompt("Enter a number", 0);
+let number2 = window.prompt("Enter a number", 0);
 
-let message = (number > 90 && number < 110) ? "Bingo!" : "Miss";
+let message = (number2 > 90 && number2 < 110) ? "Bingo!" : "Miss";
 
 console.log(message);
 
