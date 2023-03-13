@@ -29,32 +29,52 @@ let contacts = [
     email: "libero@convallis.edu",
   },
 ];
-//Menu
-let menu = 0;
 
-while (menu !== 0) {
-    menu = Number(window.prompt(
-        "Make your selection. 1| Show first contact. 2| Show last contact. 3| Show all contacts. 4| Add new contact. 0| Exit the program",
-        ""
-      ));
-  if(menu === 1){
-      alert(contacts[0]);
-  }
-    if(menu === 2){
-        console.log(contacts[contacts.length - 1]);
-    };
-    if(menu === 3){
+//Menu
+let quitMenu = false;
+
+while (!quitMenu) {
+  let selection = Number(
+    window.prompt(
+      "Make your selection.\n1| Show first contact.\n2| Show last contact.\n3| Show all contacts.\n4| Add new contact.\n0| Exit the program",
+      ""
+    )
+  );
+
+  switch (selection) {
+    //Show first contact
+    case 1:
+      alert(
+        `Name: ${contacts[0].name}\nphone: ${contacts[0].phone}\nemail: ${contacts[0].email}`
+      );
+      break;
+    //Show last contact
+    case 2:
+      let lastContact = contacts.length - 1;
+      alert(
+        `Name: ${contacts[lastContact].name}\nphone: ${contacts[lastContact].phone}\nemail: ${contacts[lastContact].email}`
+      );
+      break;
+    //Show all contacts
+    case 3:
       for (let contact of contacts) {
-        alert(contact);
+        alert(
+          `Name: ${contact.name}\nphone: ${contact.phone}\nemail: ${contact.email}`
+        );
       }
-    };
-    if(menu === 4){
-    //User input
-    let newContactName = window.prompt("Enter the contact name", "");
-    let newContactPhone = window.prompt("Enter the contact phone", "");
-    let newContactEmail = window.prompt("Enter the contact email", "");
+      break;
+    //Add new contact
+    case 4:
+      //User input
+      let newContactName = window.prompt("Enter the contact name", "");
+      let newContactPhone = window.prompt("Enter the contact phone", "");
+      let newContactEmail = window.prompt("Enter the contact email", "");
       //Check if prompts are empty
-      if (newContactName == "" || newContactEmail == "" || newContactPhone == "") {
+      if (
+        newContactName == "" ||
+        newContactEmail == "" ||
+        newContactPhone == ""
+      ) {
         alert("All fields must be filled");
       } else {
         //New contact
@@ -65,5 +85,13 @@ while (menu !== 0) {
         };
         contacts.push(newContact);
       }
-    };
-  };
+      break;
+    //Quit loop
+    case 0:
+      quitMenu = true;
+      break;
+    default:
+      console.log("Wrong selection");
+      break;
+  }
+}
