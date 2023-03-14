@@ -12,7 +12,6 @@ phone: "0800 1111",
 email: "libero@convallis.edu"
 }];
 
-// write your code here
 let newContactName = window.prompt("Enter the contact name", "");
 let newContactPhone = window.prompt("Enter the contact phone", "");
 let newContactEmail = window.prompt("Enter the contact email", "");
